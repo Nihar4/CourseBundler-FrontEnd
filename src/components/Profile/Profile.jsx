@@ -44,7 +44,9 @@ const Profile = ({ user }) => {
 
   const removeFromPlaylistHandler = async id => {
     await dispatch(removeFromPlaylist(id));
-    dispatch(loadUser());
+    const timeoutId = setTimeout(() => {
+      dispatch(loadUser());
+    }, 500);
   };
 
   const changeImageSubmitHandler = async (e, image) => {
@@ -52,7 +54,9 @@ const Profile = ({ user }) => {
     const myForm = new FormData();
     myForm.append('file', image);
     await dispatch(updateProfilePicture(myForm));
-    dispatch(loadUser());
+    const timeoutId = setTimeout(() => {
+      dispatch(loadUser());
+    }, 500);
   };
 
   const cancelSubscriptionHandler = () => {

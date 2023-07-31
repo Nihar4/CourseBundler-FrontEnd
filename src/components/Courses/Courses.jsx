@@ -92,7 +92,9 @@ const Courses = () => {
 
   const addToPlaylistHandler = async couseId => {
     await dispatch(addToPlaylist(couseId));
-    dispatch(loadUser());
+    const timeoutId = setTimeout(() => {
+      dispatch(loadUser());
+    }, 1000);
   };
 
   const categories = [

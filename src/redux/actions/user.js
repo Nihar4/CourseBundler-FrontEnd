@@ -52,9 +52,9 @@ export const loadUser = () => async dispatch => {
         withCredentials: true,
       }
     );
-    dispatch({ type: 'loadUserSuccess', payload: data.user });
+    await dispatch({ type: 'loadUserSuccess', payload: data.user });
   } catch (error) {
-    dispatch({ type: 'loadUserFail', payload: error.response.data.message });
+    await dispatch({ type: 'loadUserFail', payload: error.response.data.message });
   }
 };
 

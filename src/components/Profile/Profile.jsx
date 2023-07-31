@@ -69,8 +69,8 @@ const Profile = ({ user }) => {
       dispatch({ type: 'clearError' });
     }
     if (message) {
-      toast.success(message);
       dispatch({ type: 'clearMessage' });
+      toast.success(message);
     }
     if (subscriptionMessage) {
       toast.success(subscriptionMessage);

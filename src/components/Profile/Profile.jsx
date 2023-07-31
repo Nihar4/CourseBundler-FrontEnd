@@ -44,9 +44,7 @@ const Profile = ({ user }) => {
 
   const removeFromPlaylistHandler = async id => {
     await dispatch(removeFromPlaylist(id));
-    const timeoutId = setTimeout(() => {
-      dispatch(loadUser());
-    }, 500);
+    dispatch(loadUser());
   };
 
   const changeImageSubmitHandler = async (e, image) => {
@@ -54,9 +52,7 @@ const Profile = ({ user }) => {
     const myForm = new FormData();
     myForm.append('file', image);
     await dispatch(updateProfilePicture(myForm));
-    const timeoutId = setTimeout(() => {
-      dispatch(loadUser());
-    }, 500);
+    dispatch(loadUser());
   };
 
   const cancelSubscriptionHandler = () => {
@@ -65,22 +61,30 @@ const Profile = ({ user }) => {
 
   useEffect(() => {
     if (error) {
-      toast.error(error);
-      dispatch({ type: 'clearError' });
+      const timeoutId = setTimeout(() => {
+        toast.error(error);
+        dispatch({ type: 'clearError' });
+      }, 500);
     }
     if (message) {
-      dispatch({ type: 'clearMessage' });
-      toast.success(message);
+      const timeoutId = setTimeout(() => {
+        toast.success(message);
+        dispatch({ type: 'clearMessage' });
+      }, 200);
     }
     if (subscriptionMessage) {
-      toast.success(subscriptionMessage);
-      dispatch({ type: 'clearMessage' });
       dispatch(loadUser());
+      const timeoutId = setTimeout(() => {
+        toast.success(subscriptionMessage);
+        dispatch({ type: 'clearMessage' });
+      }, 200);
     }
 
     if (subscriptionError) {
-      toast.error(subscriptionError);
-      dispatch({ type: 'clearError' });
+      const timeoutId = setTimeout(() => {
+        toast.success(subscriptionError);
+        dispatch({ type: 'clearError' });
+      }, 200);
     }
   }, [dispatch, error, message, subscriptionMessage, subscriptionError]);
 

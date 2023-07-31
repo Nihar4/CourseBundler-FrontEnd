@@ -115,14 +115,14 @@ const Courses = () => {
       const timeoutId = setTimeout(() => {
         toast.error(error);
         dispatch({ type: 'clearError' });
-      }, 200);
+      }, 1000);
     }
 
     if (message) {
       const timeoutId = setTimeout(() => {
         toast.success(message);
         dispatch({ type: 'clearMessage' });
-      }, 200);
+      }, 1000);
     }
   }, [category, keyword, dispatch, error, message]);
 

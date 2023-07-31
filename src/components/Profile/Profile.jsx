@@ -64,27 +64,27 @@ const Profile = ({ user }) => {
       const timeoutId = setTimeout(() => {
         toast.error(error);
         dispatch({ type: 'clearError' });
-      }, 500);
+      }, 1000);
     }
     if (message) {
       const timeoutId = setTimeout(() => {
         toast.success(message);
         dispatch({ type: 'clearMessage' });
-      }, 200);
+      }, 1000);
     }
     if (subscriptionMessage) {
       dispatch(loadUser());
       const timeoutId = setTimeout(() => {
         toast.success(subscriptionMessage);
         dispatch({ type: 'clearMessage' });
-      }, 200);
+      }, 1000);
     }
 
     if (subscriptionError) {
       const timeoutId = setTimeout(() => {
         toast.success(subscriptionError);
         dispatch({ type: 'clearError' });
-      }, 200);
+      }, 1000);
     }
   }, [dispatch, error, message, subscriptionMessage, subscriptionError]);
 

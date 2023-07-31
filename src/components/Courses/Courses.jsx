@@ -92,9 +92,7 @@ const Courses = () => {
 
   const addToPlaylistHandler = async couseId => {
     await dispatch(addToPlaylist(couseId));
-    const timeoutId = setTimeout(() => {
-      dispatch(loadUser());
-    }, 1000);
+    dispatch(loadUser());
   };
 
   const categories = [
@@ -114,13 +112,17 @@ const Courses = () => {
     dispatch(getAllCourses(category, keyword));
 
     if (error) {
-      toast.error(error);
-      dispatch({ type: 'clearError' });
+      const timeoutId = setTimeout(() => {
+        toast.error(error);
+        dispatch({ type: 'clearError' });
+      }, 200);
     }
 
     if (message) {
-      toast.success(message);
-      dispatch({ type: 'clearMessage' });
+      const timeoutId = setTimeout(() => {
+        toast.success(message);
+        dispatch({ type: 'clearMessage' });
+      }, 200);
     }
   }, [category, keyword, dispatch, error, message]);
 

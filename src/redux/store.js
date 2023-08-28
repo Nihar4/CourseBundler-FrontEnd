@@ -22,4 +22,4 @@ const store = configureStore({
 
 export default store;
 
-export const server = 'https://course-bundler-cwko.vercel.app/';
+export const server = 'https://course-bundler-cwko.vercel.app/api/v1';

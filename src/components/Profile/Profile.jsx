@@ -101,7 +101,7 @@ const Profile = ({ user }) => {
 
   return (
     <>
-      {loading ? (
+      {loading || userloading ? (
         <Loader />
       ) : (
         <Container minH={'95vh'} maxW="container.lg" py="8">

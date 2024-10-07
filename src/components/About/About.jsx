@@ -24,7 +24,7 @@ const Founder = () => (
     </VStack>
 
     <VStack justifyContent={'center'} alignItems={['center', 'flex-start']}>
-      <Heading children="Nihar Patel" size={['md', 'xl']} />
+      <Heading children="Rishwa Patel" size={['md', 'xl']} />
       <Text
         textAlign={['center', 'left']}
         children={`Hi, I am a full-stack developer .
